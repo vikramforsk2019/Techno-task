@@ -25,7 +25,7 @@ from pandas import DataFrame
 import mysql.connector
 #Read csv file
 df = pd.read_csv("CSV Import.csv")
-print (df)
+
 
 
 
@@ -82,6 +82,25 @@ for i,row in df2.iterrows():
 
     # the connection is not autocommitted by default, so we must commit to save our changes
     conn.commit()
+
+
+# Table first
+print('From Table')
+sql = "SELECT * FROM `first`"
+c.execute(sql)
+# Fetch all the records and use a for loop to print them one line at a time
+result = c.fetchall()
+for i in result:
+    print(i)
+
+# Table Second
+print('Copy To')
+sql = "SELECT * FROM `second`"
+c.execute(sql)
+# Fetch all the records and use a for loop to print them one line at a time
+result = c.fetchall()
+for i in result:
+    print(i)
 conn.close()
 
 
